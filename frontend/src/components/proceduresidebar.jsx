@@ -1,37 +1,30 @@
-function ProcedureSidebar({ selectedDiscipline }) {
-  const procedures = {
-    diagnostic_sciences: [
-      "D0150 - Complete Exam",
-      "D0120 - Recall Exam",
-      "D0140 - Limited Exam"
-    ],
-    endodontics: [
-      "D3310 - RCT Anterior",
-      "D3320 - RCT Premolar",
-      "D3330 - RCT Molar"
-    ],
-    fixed_prosthodontics: [
-      "D2740 - Ceramic Crown",
-      "D2752 - PFM Crown",
-      "D2920 - Recement Crown"
-    ],
-    periodontics: [
-      "D1110 - Adult Prophylaxis",
-      "D4341 - SRP 4+ Teeth",
-      "D4910 - Periodontal Maintenance"
-    ]
-  }
-  const selectedProcedures =
-    procedures[selectedDiscipline] || []
+import { useEffect, useState } from "react"
+
+function ProcedureSidebar({ 
+    selectedDiscipline 
+  , addProcedure}) {
+  const [procedures, setProcedures] = useState([])
+  useEffect(() => {
+    fetch(`http://localhost:8000/procedures/${selectedDiscipline}`)
+      .then(response => response.json())
+      .then(data => {
+        setProcedures(data)
+      })
+      .catch(error => {
+        console.error("Error loading procedures:", error)
+      })
+  }, [selectedDiscipline])
+
   return (
     <aside className="procedure_sidebar">
       <h2>Procedures</h2>
-      {selectedProcedures.map((procedure) => (
+      {procedures.map((procedure) => (
         <button
-          key={procedure}
+          key={procedure.procedure_ID}
           className="procedure_button"
+          onClick={() => addProcedure(procedure)}
         >
-          {procedure}
+          {procedure.procedure_code} - {procedure.procedure_text}
         </button>
       ))}
     </aside>
