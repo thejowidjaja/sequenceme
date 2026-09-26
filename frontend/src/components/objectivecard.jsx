@@ -126,5 +126,3 @@ function ObjectiveCard({
     </div>
   )
 }
-
-export default ObjectiveCard
