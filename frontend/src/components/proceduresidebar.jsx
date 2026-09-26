@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
 function ProcedureSidebar({ 
-    selectedDiscipline 
-  , addProcedure}) {
+    selectedDiscipline
+    , addProcedure
+  }) {
   const [procedures, setProcedures] = useState([])
   useEffect(() => {
     fetch(`http://localhost:8000/procedures/${selectedDiscipline}`)
@@ -14,7 +15,6 @@ function ProcedureSidebar({
         console.error("Error loading procedures:", error)
       })
   }, [selectedDiscipline])
-
   return (
     <aside className="procedure_sidebar">
       <h2>Procedures</h2>
