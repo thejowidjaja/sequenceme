@@ -1,0 +1,80 @@
+
+/* Full Page CSS*/
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.workspace_page {
+  display: grid;
+  grid-template-columns: 220px 280px 1fr;
+  width: 100vw;
+  min-height: 100vh;
+  background: white;
+  color: #172b3a;
+}
+
+.workspace {
+  padding: 30px;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+
+/*DISCIPLINE SIDEBAR*/
+.discipline_sidebar {
+  border-right: 2px solid #173245;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.discipline_button {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #f2742c;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.discipline_button:hover {
+  background: #dc641f;
+}
+
+/*PROCEDURE SIDEBAR*/
+.procedure_sidebar {
+  border-right: 2px solid #173245;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.procedure_button {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #f6c1a4;
+  color: #172b3a;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.procedure_button:hover {
+  background: #f2aa83;
+}
+
+.workspace_dropzone {
+  min-height: 500px;
+  border: 2px dashed #b8c1c7;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fafafa;
+}
