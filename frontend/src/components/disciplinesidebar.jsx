@@ -34,4 +34,3 @@ function DisciplineSidebar({
 
 
 export default DisciplineSidebar
-
