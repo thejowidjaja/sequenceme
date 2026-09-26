@@ -1,8 +1,10 @@
+import ObjectiveCard from "../components/objectivecard.jsx"
 import { useEffect, useState } from "react"
 function ReportPage({
   selectedProcedures,
   setCurrentPage
 }) {
+  const [mode, setMode] = useState("beginner")
   const [reportData, setReportData] = useState([])
   useEffect(() => {
     async function loadReport() {
@@ -26,6 +28,28 @@ function ReportPage({
   return (
     <div className="report_page">
       <header className="report_topbar">
+        <div className="mode_toggle">
+            <button
+                className={
+                mode === "beginner"
+                    ? "mode_button active"
+                    : "mode_button"
+                }
+                onClick={() => setMode("beginner")}
+            >
+                Beginner
+            </button>
+            <button
+                className={
+                mode === "expert"
+                    ? "mode_button active"
+                    : "mode_button"
+                }
+                onClick={() => setMode("expert")}
+            >
+                Expert
+            </button>
+            </div>
         <div className="report_actions">
           <button
             className="return_button"
@@ -49,16 +73,12 @@ function ReportPage({
               {procedure.procedure_code} - {procedure.procedure_text}
             </h2>
             {procedure.objectives.map((objective) => (
-              <div
-                key={objective.sequence_number}
-                className="objective_card"
-              >
-                <strong>
-                  {objective.sequence_number}.
-                </strong>
-                {" "}
-                {objective.objective_text}
-              </div>
+                <ObjectiveCard
+                    key={objective.sequence_number}
+                    procedure={procedure}
+                    objective={objective}
+                    mode={mode}
+                />
             ))}
           </section>
         ))}
