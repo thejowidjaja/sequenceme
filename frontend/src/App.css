@@ -120,3 +120,73 @@
   background: #f2742c;
   color: white;
 }
+
+
+/* REPORT PAGE */
+
+.report_page {
+  min-height: 100vh;
+  background: white;
+  color: #172b3a;
+}
+
+.report_topbar {
+  height: 72px;
+  border: 2px solid #173245;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+.report_actions {
+  position: absolute;
+  right: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.download_button,
+.return_button {
+  padding: 11px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.download_button {
+  background: #e5e5e5;
+  color: #172b3a;
+}
+
+.return_button {
+  background: #f2742c;
+  color: white;
+}
+
+.report_content {
+  padding: 50px 50px;
+}
+
+.report_procedure_card {
+  background: #f2742c;
+  border-radius: 20px;
+  padding: 28px 28px;
+  margin-bottom: 24px;
+  height:fit-content;
+}
+
+.report_procedure_card h2 {
+  margin-bottom: 24px;
+  color: #172b3a;
+  font-size: 18px;
+}
+
+.objective_card {
+  background: #f6c1a4;
+  padding: 24px 30px;
+  margin-bottom: 14px;
+  border-radius: 7px;
+  font-weight: 500;
+}

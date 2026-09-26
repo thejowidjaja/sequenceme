@@ -2,13 +2,14 @@
 
 function Workspace({
   selectedProcedures,
-  setSelectedProcedures
+  setSelectedProcedures,
+  setCurrentPage
 }) {
   function clearWorkspace() {
     setSelectedProcedures([])
   }
   function runSequence() {
-    console.log(selectedProcedures)
+  setCurrentPage("report")
   }
   return (
     <main className="workspace">
