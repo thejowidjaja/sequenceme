@@ -18,25 +18,61 @@ function WorkspacePage({
     ])
   }
 
+  function clearWorkspace() {
+    setSelectedProcedures([])
+  }
+
+  function runSequence() {
+    setCurrentPage("report")
+  }
+
   return (
-    <div className="workspace_page">
+    <div className="workspace_screen">
+      <header className="app_header">
+        <div className="brand">
+          <div className="brand_icon">
+            S
+          </div>
 
-      <DisciplineSidebar
-        selectedDiscipline={selectedDiscipline}
-        setSelectedDiscipline={setSelectedDiscipline}
-      />
+          <span className="brand_name">
+            SequenceMe
+          </span>
+        </div>
 
-      <ProcedureSidebar
-        selectedDiscipline={selectedDiscipline}
-        addProcedure={addProcedure}
-      />
+        <div className="workspace_header_actions">
+          <button
+            className="header_clear_button"
+            onClick={clearWorkspace}
+          >
+            Clear
+          </button>
 
-      <Workspace
-        selectedProcedures={selectedProcedures}
-        setSelectedProcedures={setSelectedProcedures}
-        setCurrentPage={setCurrentPage}
-      />
+          <button
+            className="header_run_button"
+            onClick={runSequence}
+          >
+            ▶ Run Sequence
+          </button>
+        </div>
+      </header>
 
+      <div className="workspace_page">
+        <DisciplineSidebar
+          selectedDiscipline={selectedDiscipline}
+          setSelectedDiscipline={setSelectedDiscipline}
+        />
+
+        <ProcedureSidebar
+          selectedDiscipline={selectedDiscipline}
+          addProcedure={addProcedure}
+        />
+
+        <Workspace
+          selectedProcedures={selectedProcedures}
+          setSelectedProcedures={setSelectedProcedures}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
     </div>
   )
 }

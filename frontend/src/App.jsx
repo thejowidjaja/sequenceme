@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "./App.css"
-
 import WorkspacePage from "./pages/workspacepage.jsx"
 import ReportPage from "./pages/reportpage.jsx"
 
@@ -9,7 +8,6 @@ function App() {
     useState("workspace")
   const [selectedProcedures, setSelectedProcedures] =
     useState([])
-
   if (currentPage === "report") {
     return (
       <ReportPage
