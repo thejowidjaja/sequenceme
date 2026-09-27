@@ -1,8 +1,10 @@
+{/*IMPORT COMPONENTS*/}
 import { useState } from "react"
 import DisciplineSidebar from "../components/disciplinesidebar.jsx"
 import ProcedureSidebar from "../components/proceduresidebar.jsx"
 import Workspace from "../components/workspace.jsx"
 
+{/*STATE AND FUNCTIONS*/}
 function WorkspacePage({
   selectedProcedures,
   setSelectedProcedures,
@@ -10,35 +12,31 @@ function WorkspacePage({
 }) {
   const [selectedDiscipline, setSelectedDiscipline] =
     useState("diagnostic_sciences")
-
   function addProcedure(procedure) {
     setSelectedProcedures((current) => [
       ...current,
       procedure
     ])
   }
-
   function clearWorkspace() {
     setSelectedProcedures([])
   }
-
   function runSequence() {
     setCurrentPage("report")
   }
 
   return (
     <div className="workspace_screen">
+      {/*HEADER*/}
       <header className="app_header">
         <div className="brand">
           <div className="brand_icon">
             S
           </div>
-
           <span className="brand_name">
             SequenceMe
           </span>
         </div>
-
         <div className="workspace_header_actions">
           <button
             className="header_clear_button"
@@ -46,7 +44,6 @@ function WorkspacePage({
           >
             Clear
           </button>
-
           <button
             className="header_run_button"
             onClick={runSequence}
@@ -55,7 +52,9 @@ function WorkspacePage({
           </button>
         </div>
       </header>
+      {/*END HEADER*/}
 
+      {/*WORKSPACE*/}
       <div className="workspace_page">
         <DisciplineSidebar
           selectedDiscipline={selectedDiscipline}
@@ -73,6 +72,7 @@ function WorkspacePage({
           setCurrentPage={setCurrentPage}
         />
       </div>
+      {/*END WORKSPACE*/}
     </div>
   )
 }
